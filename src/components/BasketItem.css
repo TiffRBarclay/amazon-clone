@@ -1,0 +1,30 @@
+.basket-item {
+  display: flex;
+  margin: 20px 0;
+}
+
+.basket-item-info {
+  padding-left: 20px;
+}
+
+.basket-item-info > button {
+  background: #febd69;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #222;
+}
+
+.basket-item > img {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+}
+
+.basket-item-rating {
+  display: flex;
+}
+
+.basket-item-info > p {
+  font-size: 17px;
+  font-weight: 800;
+}
