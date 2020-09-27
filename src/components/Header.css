@@ -9,7 +9,7 @@
   z-index: 100;
 }
 
-.header > img {
+.header-logo {
   width: 100px;
   object-fit: contain;
   margin: 0 50px 0 20px;
@@ -44,6 +44,10 @@
 .navigation-option {
   margin-right: 50px;
   cursor: pointer;
+}
+.navigation-option > a {
+  color: white;
+  text-decoration: none;
 }
 
 .shopping-cart {
