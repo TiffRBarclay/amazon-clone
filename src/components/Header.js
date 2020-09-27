@@ -4,8 +4,11 @@ import "./Header.css";
 import Logo from "../Images/amazon-logo.png";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import { useStateValue } from "../ReactContextAPI/StateProvider";
 
 function Header() {
+  const [{ basket }, dispatch] = useStateValue();
+
   // const handleSearch = (e) => {
   //   e.preventDefault();
   // };
@@ -42,7 +45,7 @@ function Header() {
           <Link to="/checkout">
             <div className="shopping-cart">
               <ShoppingBasketIcon style={{ fontSize: "36px" }} />
-              <p className="cart-quantity">{0}</p>
+              <p className="cart-quantity">{basket?.length}</p>
             </div>
           </Link>
         </div>
