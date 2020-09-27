@@ -6,9 +6,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
 function Header() {
-  const handleSearch = (e) => {
-    e.preventDefault();
-  };
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <div className="header">
