@@ -24,10 +24,12 @@ function Header() {
       </div>
       <div className="navigation">
         <div className="navigation-option">
-          <p style={{ color: "#bbb" }}>Hello</p>
-          <p>
-            <b>Sign in</b>
-          </p>
+          <Link to="/login">
+            <p style={{ color: "#bbb" }}>Hello</p>
+            <p>
+              <b>Sign in</b>
+            </p>
+          </Link>
         </div>
         <div className="navigation-option">
           <p style={{ color: "#bbb" }}>Returns</p>
