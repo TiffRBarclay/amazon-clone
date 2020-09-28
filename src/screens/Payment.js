@@ -3,7 +3,7 @@ import "./Payment.css";
 import { useStateValue } from "../ReactContextAPI/StateProvider";
 import CurrencyFormat from "react-currency-format";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
+import axios from "../axios";
 
 import BasketItem from "../components/BasketItem";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
@@ -52,6 +52,10 @@ function Payment() {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
 
         history.replace("/orders");
       });
