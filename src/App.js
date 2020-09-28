@@ -24,8 +24,6 @@ function App() {
   useEffect(() => {
     // Event Listener
     auth.onAuthStateChanged((authUser) => {
-      console.log("The user is >>> ", authUser);
-
       if (authUser) {
         // user logged in || user already logged in
         dispatch({
