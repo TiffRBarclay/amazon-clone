@@ -1,0 +1,38 @@
+.payment {
+  background-color: white;
+  height: fit-content;
+}
+
+.payment-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgb(234, 237, 237);
+  border-bottom: 1px solid lightgray;
+}
+
+.payment-title {
+  font-weight: 400;
+}
+
+.payment-title a {
+  text-decoration: none;
+}
+
+.payment-section {
+  display: flex;
+  padding: 20px;
+  margin: 0 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.payment-section-title {
+  flex: 0.2;
+}
+
+.delivery-details,
+.payment-option,
+.payment-items {
+  flex: 0.8;
+}
