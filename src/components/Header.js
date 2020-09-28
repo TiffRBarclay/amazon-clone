@@ -5,13 +5,20 @@ import Logo from "../Images/amazon-logo.png";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "../ReactContextAPI/StateProvider";
+import { auth } from "../firebase/Firebase";
 
 function Header() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
   // const handleSearch = (e) => {
   //   e.preventDefault();
   // };
+
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <div className="header">
@@ -23,14 +30,14 @@ function Header() {
         <SearchIcon className="search-icon" />
       </div>
       <div className="navigation">
-        <div className="navigation-option">
-          <Link to="/login">
+        <Link to={!user && "/login"}>
+          <div onClick={handleAuthentication} className="navigation-option">
             <p style={{ color: "#bbb" }}>Hello</p>
             <p>
-              <b>Sign in</b>
+              <b>{user ? "Sign Out" : "Sign In"}</b>
             </p>
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="navigation-option">
           <p style={{ color: "#bbb" }}>Returns</p>
           <p>

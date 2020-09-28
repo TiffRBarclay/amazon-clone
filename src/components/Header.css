@@ -45,7 +45,8 @@
   margin-right: 50px;
   cursor: pointer;
 }
-.navigation-option > a {
+.navigation > a,
+.navigation-option a {
   color: white;
   text-decoration: none;
 }
