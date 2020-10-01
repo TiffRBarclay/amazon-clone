@@ -8,6 +8,7 @@ import axios from "../axios";
 import BasketItem from "../components/BasketItem";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "../ReactContextAPI/Reducer";
+import { db } from "../firebase/Firebase";
 
 function Payment() {
   const history = useHistory();
@@ -49,6 +50,16 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         //paymentIntent = payment confirmation
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
@@ -88,14 +99,16 @@ function Payment() {
         <div className="product-details payment-section">
           <h3 className="payment-section-title">Review Items and Delivery</h3>
           <div className="payment-items">
-            {basket.map((item) => (
-              <BasketItem
-                id={item.id}
-                name={item.name}
-                image={item.image}
-                price={item.price}
-                rating={item.rating}
-              />
+            {basket.map((item, i) => (
+              <div key={i}>
+                <BasketItem
+                  id={item.id}
+                  name={item.name}
+                  image={item.image}
+                  price={item.price}
+                  rating={item.rating}
+                />
+              </div>
             ))}
           </div>
         </div>
