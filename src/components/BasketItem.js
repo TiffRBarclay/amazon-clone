@@ -3,7 +3,7 @@ import "./BasketItem.css";
 import StarIcon from "@material-ui/icons/Star";
 import { useStateValue } from "../ReactContextAPI/StateProvider";
 
-function BasketItem({ id, name, image, price, rating }) {
+function BasketItem({ id, name, image, price, rating, hideButton }) {
   const [{ basket }, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
@@ -31,7 +31,9 @@ function BasketItem({ id, name, image, price, rating }) {
               </div>
             ))}
         </div>
-        <button onClick={removeFromBasket}>Remove from Basket</button>
+        {!hideButton && (
+          <button onClick={removeFromBasket}>Remove from Basket</button>
+        )}
       </div>
     </div>
   );
