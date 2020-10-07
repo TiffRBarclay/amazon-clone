@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import "./Login.css";
 import AmazonLogoDark from "../Images/amazon-logo-dark.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { auth } from "../firebase/Firebase";
 
-function Login() {
+function Login(props) {
   const history = useHistory();
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
-        history.push("/");
+        if (location.state.payment) {
+          history.push("/payment");
+        } else {
+          history.push("/");
+        }
       })
       .catch((err) => alert(err.message));
   };
