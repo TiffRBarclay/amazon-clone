@@ -115,6 +115,10 @@ function Payment() {
         <div className="payment-details payment-section">
           <h3 className="payment-section-title">Payment Method</h3>
           <div className="payment-option">
+            <p>
+              TEST PAYMENT: keep typing 4 & 2 until you can't type anymore.
+              NEVER PUT IN YOUR REAL CARD
+            </p>
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
               <div className="payment-price-container">
