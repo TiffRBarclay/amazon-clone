@@ -32,18 +32,22 @@ function Header() {
       <div className="navigation">
         <Link to={!user && "/login"}>
           <div onClick={handleAuthentication} className="navigation-option">
-            <p style={{ color: "#bbb" }}>Hello</p>
+            <p style={{ color: "#bbb" }}>{`Hello${
+              user ? ", " + user.email : ""
+            }`}</p>
             <p>
               <b>{user ? "Sign Out" : "Sign In"}</b>
             </p>
           </div>
         </Link>
-        <div className="navigation-option">
-          <p style={{ color: "#bbb" }}>Returns</p>
-          <p>
-            <b>& orders</b>
-          </p>
-        </div>
+        <Link to={"/orders"}>
+          <div className="navigation-option">
+            <p style={{ color: "#bbb" }}>Returns</p>
+            <p>
+              <b>& orders</b>
+            </p>
+          </div>
+        </Link>
         <div className="navigation-option">
           <p style={{ color: "#bbb" }}>Your</p>
           <p>
