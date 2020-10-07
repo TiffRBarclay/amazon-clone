@@ -7,6 +7,7 @@ import Home from "./screens/Home";
 import Checkout from "./screens/Checkout";
 import Login from "./screens/Login";
 import Payment from "./screens/Payment";
+import Orders from "./screens/Orders";
 
 import { auth } from "./firebase/Firebase";
 import { useStateValue } from "./ReactContextAPI/StateProvider";
@@ -45,6 +46,10 @@ function App() {
       <Switch>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/orders">
+          <Header />
+          <Orders />
         </Route>
         <Route path="/payment">
           <Header />
